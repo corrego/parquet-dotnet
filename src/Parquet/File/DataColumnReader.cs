@@ -233,7 +233,7 @@ namespace Parquet.File
 
             case Thrift.Encoding.PLAIN_DICTIONARY:
                if (cd.indexes == null) cd.indexes = new int[(int)totalValues];
-               indexCount = ReadPlainDictionary(reader, maxReadCount, currValues, cd.indexes, 0);
+               indexCount = ReadPlainDictionary(reader, maxReadCount, cd.indexes, 0);
                _dataTypeHandler.MergeDictionary(cd.dictionary, cd.indexes, cd.values, cd.valuesOffset, indexCount);
                cd.valuesOffset += indexCount;
                break;
